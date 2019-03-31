@@ -20,7 +20,7 @@ export const styles = createStyles({
     display: 'grid',
     gridColumnGap: '20px',
     gridRowGap: '20px',
-    gridTemplateColumns: '2fr 1fr 2fr',
+    gridTemplateColumns: '3fr 1fr 3fr',
     gridTemplate: `
       "tools arts pages" 1fr
       "items jutsu pages" 1fr
