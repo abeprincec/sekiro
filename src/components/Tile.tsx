@@ -1,27 +1,27 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Box, BoxProps } from './Box';
+import { BoxProps } from './Box';
 import { createStyles, Omit, WithStyles, withStyles } from '@material-ui/core';
 import { Dock } from './Dock';
 import { useActionSpatial } from '../lib/spatial/useActionSpatial';
 import { SpatialMeta } from '../lib/spatial/SpatialMeta';
 import { Action } from '../lib/action/Action';
+import { Flex } from './Flex';
+import { texture } from '../functions/texture';
 
 export const variants = {
-  square: {},
-  octagon: {
-    borderRadius: '50%'
-  }
+  square: texture(require('../assets/square.png')),
+  octagon: texture(require('../assets/octagon.png'))
 };
 
 export const sizes = {
   small: {
-    width: 40,
-    height: 40
+    width: 110,
+    height: 110
   },
   large: {
-    width: 80,
-    height: 80
+    width: 180,
+    height: 180
   }
 };
 
@@ -31,10 +31,7 @@ export const styles = createStyles({
   tile: {
     position: 'relative'
   },
-  activeOverlay: {
-    borderRadius: '50%',
-    border: '10px solid orange'
-  }
+  activeOverlay: texture(require('../assets/circle.png'))
 });
 
 export type TileVariant = keyof typeof variants;
@@ -63,7 +60,7 @@ export const Tile = withStyles(styles)(
     const ref = React.useRef<HTMLDivElement>(null);
     const isActive = useActionSpatial(ref, action, meta);
     return (
-      <Box
+      <Flex
         innerRef={ref}
         className={classNames(
           classes.tile,
@@ -75,7 +72,7 @@ export const Tile = withStyles(styles)(
       >
         {children}
         {isActive && <Dock className={classes.activeOverlay} />}
-      </Box>
+      </Flex>
     );
   }
 );
