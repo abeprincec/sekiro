@@ -22,7 +22,9 @@ export class Spatial {
   }
 
   @action add(node: SpatialNode, meta?: SpatialMeta) {
-    this.meta.set(node, meta);
+    if (node) {
+      this.meta.set(node, meta);
+    }
     this.nodes.push(node);
     if (!this.active) {
       this.setActive(node);
@@ -30,7 +32,9 @@ export class Spatial {
   }
 
   @action remove(node: SpatialNode) {
-    this.meta.delete(node);
+    if (node) {
+      this.meta.delete(node);
+    }
     const nodeIndex = this.nodes.indexOf(node);
     if (nodeIndex !== -1) {
       if (this.active === node) {
