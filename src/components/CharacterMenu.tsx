@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TabbedContent } from './TabbedContent';
 import { Equipment } from './Equipment';
-import { SpatialTest } from './SpatialTest';
 import { useAction } from '../lib/action/useAction';
 import { ActionHUD } from './ActionHUD';
 import { ItemSelect } from './ItemSelect';
@@ -34,11 +33,6 @@ const CharacterMenuContent = () =>
       );
     }
     return (
-      <TabbedContent
-        tabs={[
-          { label: 'Equipment', content: Equipment },
-          { label: 'Spatial Test', content: SpatialTest }
-        ]}
-      />
+      <TabbedContent tabs={[{ label: 'Equipment', content: Equipment }]} />
     );
   });
