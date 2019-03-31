@@ -120,8 +120,7 @@ export const items = [
           <br />
           The music, the fashion, many song lyrics and other cultural phenomena
           associated with disco were focused on having a good time on the dance
-          floor of a discotheque to the loud sounds of records being played by a
-          DJ.
+          floor.
         </Typography>
       </>
     ),

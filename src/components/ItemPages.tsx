@@ -20,15 +20,21 @@ export const ItemPages = ({ item, ...pagesProps }: ItemPagesProps) => {
         <Header variant="doubleEdge">
           <Typography>{item.name}</Typography>
         </Header>
-        <Header variant="noEdge">
-          <Typography>Spirit Emblem Cost: {item.emblemCost}</Typography>
-        </Header>
-        <Header variant="noEdge">
-          <Typography>Number Held: {item.numberHeld}</Typography>
-        </Header>
-        <Header variant="noEdge">
-          <Typography>In Storage: {item.inStorage}</Typography>
-        </Header>
+        {item.emblemCost! > 0 && (
+          <Header variant="noEdge">
+            <Typography>Spirit Emblem Cost: {item.emblemCost}</Typography>
+          </Header>
+        )}
+        {item.numberHeld! > 0 && (
+          <Header variant="noEdge">
+            <Typography>Number Held: {item.numberHeld}</Typography>
+          </Header>
+        )}
+        {item.inStorage! > 0 && (
+          <Header variant="noEdge">
+            <Typography>In Storage: {item.inStorage}</Typography>
+          </Header>
+        )}
         {item.description}
       </Page>
     );
