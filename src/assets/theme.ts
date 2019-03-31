@@ -31,22 +31,44 @@ export const createSekiroTheme = () =>
         }
       },
       MuiTabs: {
+        root: {
+          minHeight: 0,
+          overflow: 'visible'
+        },
         indicator: {
           display: 'none'
+        },
+        fixed: {
+          overflow: 'visible',
+          overflowX: 'visible'
         }
       },
       MuiTab: {
         root: {
           ...defaultFont,
-          ...texture(require('./tab.png')),
-          width: 352,
-          height: 92
+          minHeight: 0,
+          position: 'relative',
+          overflow: 'visible',
+          marginRight: 35,
+          '&:before': {
+            ...texture(require('./tab.png')),
+            content: '" "',
+            display: 'block',
+            position: 'absolute',
+            top: -15,
+            right: -20,
+            bottom: -5,
+            left: -10
+          }
+        },
+        labelContainer: {
+          padding: '0px !important',
+          lineHeight: '1em',
+          position: 'relative'
         },
         label: {
-          position: 'relative',
           color: '#fffcb3',
-          textShadow: '1px 1px 3px #a24f08',
-          top: 7
+          textShadow: '1px 1px 3px #a24f08'
         },
         selected: {}
       }

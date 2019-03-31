@@ -23,7 +23,7 @@ export const TabbedContent = withStyles(styles)(
       <>
         <Tabs value={tabIndex} onChange={(e, value) => setTabIndex(value)}>
           {tabs.map(({ content, ...tabProps }, index) => (
-            <Tab key={index} {...tabProps} />
+            <Tab disableRipple key={index} {...tabProps} />
           ))}
         </Tabs>
         <Divider />
