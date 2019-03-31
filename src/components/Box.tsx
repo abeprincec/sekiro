@@ -1,22 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {
-  createStyles,
-  Omit,
-  Theme,
-  withStyles,
-  WithStyles
-} from '@material-ui/core';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { createStyles, Omit, withStyles, WithStyles } from '@material-ui/core';
 import { Flex, FlexProps } from './Flex';
+import { texture } from '../functions/texture';
 
-export const styles = (theme: Theme) =>
-  createStyles({
-    box: {
-      background: fade(theme.palette.common.black, 0.5),
-      padding: 10
-    }
-  });
+export const styles = createStyles({
+  box: {
+    ...texture(require('../assets/box.png')),
+    padding: 10
+  }
+});
 
 export type BoxProps = WithStyles<typeof styles> & Omit<FlexProps, 'classes'>;
 
