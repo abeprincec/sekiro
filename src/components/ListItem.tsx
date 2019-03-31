@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Box, BoxProps } from './Box';
 import { createStyles, Omit, WithStyles, withStyles } from '@material-ui/core';
-import { Dock } from './Dock';
 import { useActionSpatial } from '../lib/spatial/useActionSpatial';
 import { SpatialMeta } from '../lib/spatial/SpatialMeta';
 import { Action } from '../lib/action/Action';
@@ -10,10 +9,6 @@ import { Action } from '../lib/action/Action';
 export const styles = createStyles({
   listItem: {
     position: 'relative'
-  },
-  activeOverlay: {
-    borderRadius: '5%',
-    border: '10px solid orange'
   }
 });
 
@@ -38,10 +33,11 @@ export const ListItem = withStyles(styles)(
       <Box
         innerRef={ref}
         className={classNames(classes.listItem, className)}
+        gutter={false}
+        highlight={isActive}
         {...boxProps}
       >
         {children}
-        {isActive && <Dock className={classes.activeOverlay} />}
       </Box>
     );
   }

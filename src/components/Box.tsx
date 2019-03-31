@@ -8,18 +8,28 @@ export const styles = createStyles({
   box: {
     ...texture(require('../assets/box.png')),
     padding: 10
+  },
+  highlight: {
+    ...texture(require('../assets/highlight.png'))
   }
 });
 
-export type BoxProps = WithStyles<typeof styles> & Omit<FlexProps, 'classes'>;
+export type BoxProps = WithStyles<typeof styles> &
+  Omit<FlexProps, 'classes'> & {
+    highlight?: boolean;
+  };
 
 export const Box = withStyles(styles)(
   React.forwardRef<HTMLDivElement, BoxProps>(
-    ({ classes, children, className, ...divProps }, ref) => (
+    ({ classes, children, className, highlight, ...divProps }, ref) => (
       <Flex
         innerRef={ref}
         direction="column"
-        className={classNames(classes.box, className)}
+        className={classNames(
+          classes.box,
+          { [classes.highlight]: highlight },
+          className
+        )}
         {...divProps}
       >
         {children}
