@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Vector } from '../lib/spatial/Vector';
-import { travelCost } from '../lib/spatial/getNearestNodeInDirection';
+import {
+  getAngleDelta,
+  getTravelCost
+} from '../lib/spatial/getNearestNodeInDirection';
 
 export const TravelTest = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -50,11 +53,11 @@ export const TravelTest = () => {
         <br />
         Angle: {a.angle(b)}
         <br />
-        Angle Delta: {Math.abs(desiredAngle - a.angle(b))}
+        Angle Delta: {getAngleDelta(desiredAngle, a.angle(b))}
         <br />
         Distance: {a.distance(b)}
         <br />
-        Travel Cost: {travelCost([a, b], desiredAngle)}
+        Travel Cost: {getTravelCost([a, b], desiredAngle)}
         <br />
       </div>
     </>

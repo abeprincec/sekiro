@@ -11,7 +11,7 @@ export function getNearestNodeInDirection(
   const directionAngle = directionAngles[direction];
   const { nearest } = candidates.reduce<NearestReducer>(
     ({ nearest, nearestCost }, candidate) => {
-      const candidateCost = travelCost(
+      const candidateCost = getTravelCost(
         getPoints(start, candidate),
         directionAngle
       );
@@ -46,13 +46,17 @@ const directionAngles = {
   up: -Math.PI / 2
 };
 
-export function travelCost([a, b]: Vector[], desiredAngle: number): number {
+export function getTravelCost([a, b]: Vector[], desiredAngle: number): number {
   const distance = a.distance(b);
   const angle = a.angle(b);
-  const angleDelta = Math.abs(desiredAngle - angle);
+  const angleDelta = getAngleDelta(desiredAngle, angle);
   if (angleDelta >= Math.PI / 2) {
     return -1;
   }
   const anglePenalty = angleDelta / (Math.PI / 2);
   return distance + distance * anglePenalty;
+}
+
+export function getAngleDelta(a: number, b: number) {
+  return Math.PI - Math.abs(Math.abs(a - b) - Math.PI);
 }
