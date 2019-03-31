@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Action } from '../lib/action/Action';
-import { ActionButton } from './ActionButton';
+import { ActionButton, ActionButtonProps } from './ActionButton';
 import { useAction } from '../lib/action/useAction';
 
-export const InlineActionButton = (action: Action) => {
-  useAction({ ...action, hidden: true });
-  return <ActionButton {...action} />;
+export const InlineActionButton = (props: ActionButtonProps) => {
+  useAction({ ...props, hidden: true });
+  return <ActionButton {...props} />;
 };
