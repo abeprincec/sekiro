@@ -9,17 +9,28 @@ export function getNearestNodeInDirection(
 ) {
   const getPoints = pointFunctions[direction];
   const directionAngle = directionAngles[direction];
-  const nearest = candidates
-    .map(candidate => ({
-      candidate,
-      cost: travelCost(getPoints(start, candidate), directionAngle)
-    }))
-    .filter(entry => entry.cost >= 0)
-    .sort((a, b) => a.cost - b.cost);
-  if (nearest.length) {
-    return nearest[0].candidate;
+  const { nearest } = candidates.reduce<NearestReducer>(
+    ({ nearest, nearestCost }, candidate) => {
+      const candidateCost = travelCost(
+        getPoints(start, candidate),
+        directionAngle
+      );
+      if (candidateCost >= 0 && candidateCost < nearestCost) {
+        return { nearest: candidate, nearestCost: candidateCost };
+      }
+      return { nearest, nearestCost };
+    },
+    { nearest: null, nearestCost: Infinity }
+  );
+  if (nearest) {
+    return nearest;
   }
 }
+
+type NearestReducer = {
+  nearest: Bounds | null;
+  nearestCost: number;
+};
 
 const pointFunctions = {
   right: (a: Bounds, b: Bounds) => [a.centerRight, b.centerLeft],
