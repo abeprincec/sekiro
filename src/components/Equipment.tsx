@@ -24,7 +24,7 @@ export const styles = createStyles({
     gridTemplate: `
       "tools arts pages" 1fr
       "items jutsu pages" 1fr
-      "stats stats stats" 100px
+      "stats stats stats" 175px
     `
   },
   tools: {
