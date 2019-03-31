@@ -4,6 +4,7 @@ export class Item {
   name?: string;
   emblemCost?: number;
   numberHeld?: number;
+  image?: string;
   inStorage?: number;
   description: ReactNode;
   description2: ReactNode;

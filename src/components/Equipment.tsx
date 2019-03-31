@@ -68,7 +68,7 @@ export const Equipment = withStyles(styles)(
             </Header>
             <ItemSlotTiles
               slots={equipment.itemSlots}
-              available={equipment.items}
+              available={equipment.consumable}
             />
           </div>
           <div className={classes.arts}>
