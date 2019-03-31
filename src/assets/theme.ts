@@ -30,8 +30,25 @@ export const createSekiroTheme = () =>
           ...texture(require('./divider.png'))
         }
       },
+      MuiTabs: {
+        indicator: {
+          display: 'none'
+        }
+      },
       MuiTab: {
-        root: defaultFont
+        root: {
+          ...defaultFont,
+          ...texture(require('./tab.png')),
+          width: 352,
+          height: 92
+        },
+        label: {
+          position: 'relative',
+          color: '#fffcb3',
+          textShadow: '1px 1px 3px #a24f08',
+          top: 7
+        },
+        selected: {}
       }
     }
   });
