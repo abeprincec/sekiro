@@ -5,6 +5,7 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core';
+import { skillColor } from '../assets/theme';
 
 export const styles = createStyles({
   skillIcon: {
@@ -13,7 +14,8 @@ export const styles = createStyles({
     backgroundImage: `url(${require('../assets/skill-points-background.png')})`,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: skillColor
   }
 });
 

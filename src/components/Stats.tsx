@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box } from './Box';
-import { Divider, Typography } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 import { Header } from './Header';
 import { Row } from './Row';
 import { Column } from './Column';
@@ -8,6 +8,8 @@ import { SkillProgressBar } from './SkillProgressBar';
 import { HealthBar } from './HealthBar';
 import { Resurrections } from './Resurrections';
 import { StatsStore } from '../state/StatsStore';
+import { Line } from './Line';
+import { skillColor } from '../assets/theme';
 
 export type StatsProps = React.HTMLAttributes<HTMLDivElement> & {
   stats: StatsStore;
@@ -33,10 +35,10 @@ export const Stats = ({ stats, style, ...divProps }: StatsProps) => (
         </Box>
         <Box flex={4}>
           <Row>
-            <img src={require('../assets/unseen-aid-icon.png')} height={50} />
+            <img src={require('../assets/unseen-aid-icon.png')} height={75} />
             <Column>
-              <Typography>Unseen Aid</Typography>
-              <Typography>{stats.unseenAid}%</Typography>
+              <Line>Unseen Aid</Line>
+              <Line>{stats.unseenAid}%</Line>
             </Column>
           </Row>
         </Box>
@@ -44,17 +46,17 @@ export const Stats = ({ stats, style, ...divProps }: StatsProps) => (
       <Box direction="row" flex={3}>
         <Box flex={5}>
           <Row flex={1}>
-            <img src={require('../assets/vitality-icon.png')} height={23} />
+            <img src={require('../assets/vitality-icon.png')} height={29} />
             <Row flex={1} align="space-between">
-              <Typography>Vitality</Typography>
-              <Typography>{stats.vitality}</Typography>
+              <Line>Vitality</Line>
+              <Line>{stats.vitality}</Line>
             </Row>
           </Row>
           <Row flex={1}>
-            <img src={require('../assets/attack-icon.png')} height={23} />
+            <img src={require('../assets/attack-icon.png')} height={29} />
             <Row flex={1} align="space-between">
-              <Typography>Attack</Typography>
-              <Typography>{stats.attack}</Typography>
+              <Line>Attack</Line>
+              <Line>{stats.attack}</Line>
             </Row>
           </Row>
         </Box>
@@ -62,24 +64,28 @@ export const Stats = ({ stats, style, ...divProps }: StatsProps) => (
           flex={6}
           style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}
         >
-          <Row style={{ width: '100%' }} align="space-between">
+          <Row style={{ width: '100%' }} valign="center" align="space-between">
             <SkillProgressBar flex={1} points={1} value={0.67} />
-            <Typography>{stats.exp}</Typography>
+            <Line variant="body1" style={{ color: skillColor }}>
+              {stats.exp}
+            </Line>
           </Row>
-          <Typography>to next Skill Point {stats.expForNextSkill}</Typography>
+          <Line variant="body1" style={{ color: skillColor }}>
+            to next Skill Point {stats.expForNextSkill}
+          </Line>
         </Box>
       </Box>
       <Box flex={1} style={{ justifyContent: 'space-between' }}>
         <Box direction="row" style={{ justifyContent: 'space-between' }}>
-          <img src={require('../assets/spirit-emblem-icon.png')} height={23} />
-          <Typography>
+          <img src={require('../assets/spirit-emblem-icon.png')} height={35} />
+          <Line>
             {stats.emblems}/{stats.maxEmblems} ({stats.emblemsInStorage})
-          </Typography>
+          </Line>
         </Box>
         <Header>
-          <Row align="space-between">
+          <Row flex={1} align="space-between">
             <img src={require('../assets/money-icon.png')} height={23} />
-            <Typography>{stats.money}</Typography>
+            <Line>{stats.money}</Line>
           </Row>
         </Header>
       </Box>

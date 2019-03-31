@@ -3,6 +3,8 @@ import { fonts } from './fonts';
 import { texture } from '../functions/texture';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
+export const skillColor = '#a4bed4'; // HACK should be in palette
+
 const defaultColor = '#b9b9b8';
 const defaultFont = {
   fontSize: '28px !important',
@@ -20,7 +22,7 @@ export const createSekiroTheme = () =>
         color: defaultColor,
         textShadow: '3px 3px 4px #000000'
       },
-      body1: { fontSize: 20 },
+      body1: { fontSize: 22 },
       body2: defaultFont
     },
     overrides: {
