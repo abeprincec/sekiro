@@ -39,7 +39,7 @@ export const ItemSelect = (props: ItemSelectProps) =>
         </Column>
         <Column flex={1}>
           <ActiveSpatialMeta type={Item}>
-            {item => <ItemPages item={item} />}
+            {item => <ItemPages item={item} style={{ flex: 1 }} />}
           </ActiveSpatialMeta>
         </Column>
       </Row>
