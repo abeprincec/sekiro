@@ -23,8 +23,12 @@ const config: Configuration = {
         use: ['react-hot-loader/webpack']
       },
       {
-        test: /\.(png|jpg|woff2|css)$/,
+        test: /\.(png|jpg|woff2)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

@@ -1,31 +1,37 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Theme, WithStyles, withStyles } from '@material-ui/core';
+import { createStyles, Theme, WithStyles, withStyles } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { texture } from '../functions/texture';
 
 const variants = (theme: Theme) => ({
   noEdge: {
     background: fade(theme.palette.common.black, 0.75)
   },
   singleEdge: {
-    background: `linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(125,185,232,0) 100%)`
+    ...texture(require('../assets/header-background1.png')),
+    height: 55
   },
   doubleEdge: {
-    background: `linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0.25) 50%,rgba(0,0,0,1) 100%)`,
-    textAlign: 'center'
+    ...texture(require('../assets/header-background2.png')),
+    justifyContent: 'center'
   } as CSSProperties
 });
 
-const styles = (theme: Theme) => ({
-  header: {
-    padding: `5px 10px`,
-    '&:not(:last-child)': {
-      marginBottom: 10
-    }
-  },
-  ...variants(theme)
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    header: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: `5px 20px`,
+      '&:not(:last-child)': {
+        marginBottom: 10
+      }
+    },
+    ...variants(theme)
+  });
 
 export type HeaderVariant = keyof ReturnType<typeof variants>;
 
