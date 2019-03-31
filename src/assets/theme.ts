@@ -51,10 +51,19 @@ export const createSekiroTheme = () =>
           overflow: 'visible',
           marginRight: 35,
           '&:before': {
-            ...texture(require('./tab.png')),
+            ...texture(require('./tab2.png')),
             content: '" "',
             display: 'block',
             position: 'absolute',
+            top: -15,
+            right: -20,
+            bottom: -15,
+            left: -10
+          }
+        },
+        selected: {
+          '&:before': {
+            ...texture(require('./tab.png')),
             top: -15,
             right: -20,
             bottom: -5,
@@ -69,8 +78,7 @@ export const createSekiroTheme = () =>
         label: {
           color: '#fffcb3',
           textShadow: '1px 1px 3px #a24f08'
-        },
-        selected: {}
+        }
       }
     }
   });
