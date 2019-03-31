@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Box } from './Box';
 import { Divider } from '@material-ui/core';
-import { Header } from './Header';
 import { Row } from './Row';
 import { Column } from './Column';
 import { SkillProgressBar } from './SkillProgressBar';
@@ -82,12 +81,12 @@ export const Stats = ({ stats, style, ...divProps }: StatsProps) => (
             {stats.emblems}/{stats.maxEmblems} ({stats.emblemsInStorage})
           </Line>
         </Box>
-        <Header>
+        <Box>
           <Row flex={1} align="space-between">
             <img src={require('../assets/money-icon.png')} height={23} />
             <Line>{stats.money}</Line>
           </Row>
-        </Header>
+        </Box>
       </Box>
     </Row>
     <Divider />
