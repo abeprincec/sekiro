@@ -27,13 +27,15 @@ export const createSekiroTheme = () =>
       MuiDivider: {
         root: {
           height: 30,
+          backgroundColor: 'transparent',
           ...texture(require('./divider.png'))
         }
       },
       MuiTabs: {
         root: {
           minHeight: 0,
-          overflow: 'visible'
+          overflow: 'visible',
+          marginBottom: 5
         },
         indicator: {
           display: 'none'
@@ -59,15 +61,15 @@ export const createSekiroTheme = () =>
             right: -20,
             bottom: -15,
             left: -10
-          }
-        },
-        selected: {
-          '&:before': {
-            ...texture(require('./tab.png')),
-            top: -15,
-            right: -20,
-            bottom: -5,
-            left: -10
+          },
+          '&$selected': {
+            '&:before': {
+              ...texture(require('./tab.png')),
+              top: -15,
+              right: -20,
+              bottom: -5,
+              left: -10
+            }
           }
         },
         labelContainer: {
