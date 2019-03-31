@@ -18,8 +18,8 @@ const styles = createStyles({
   },
   toggle: {
     position: 'absolute',
-    bottom: 20,
-    right: 30
+    bottom: 40,
+    right: 40
   }
 });
 

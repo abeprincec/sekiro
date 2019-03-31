@@ -1,16 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core';
+import { texture } from '../functions/texture';
 
 export const styles = createStyles({
   pageIcon: {
-    width: 25,
-    height: 30,
-    boxShadow: `0px 0px 5px 1px rgba(0,0,0,0.75)`,
-    background: 'gray'
+    width: 20,
+    height: 21,
+    ...texture(require('../assets/page-icon2.png'))
   },
   active: {
-    background: 'white'
+    ...texture(require('../assets/page-icon1.png'))
   }
 });
 
