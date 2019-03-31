@@ -6,8 +6,8 @@ export const styles = createStyles({
   container: {
     width: '100%',
     height: '100%',
-    background: 'tomato',
-    padding: `35px 50px`,
+    background: `url(${require('../assets/border.png')})`,
+    padding: `55px 69px 57px 69px`,
     display: 'flex'
   },
   content: {
