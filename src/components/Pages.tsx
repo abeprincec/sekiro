@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { createStyles, Omit, WithStyles, withStyles } from '@material-ui/core';
 import { PageIcons } from './PageIcons';
-import { Dock } from './Dock';
 import { noop } from '../functions/noop';
 import { InlineActionButton } from './InlineActionButton';
+import { Row } from './Row';
 
 const styles = createStyles({
   pages: {
@@ -15,6 +15,11 @@ const styles = createStyles({
     display: 'flex',
     flexDirection: 'column',
     flex: 1
+  },
+  toggle: {
+    position: 'absolute',
+    bottom: 20,
+    right: 30
   }
 });
 
@@ -47,14 +52,14 @@ export const Pages = withStyles(styles)((props: PagesProps) => {
     <div {...divProps} className={classNames(classes.pages, className)}>
       {currentPageWithStyle}
       {childrenArray.length > 1 && (
-        <Dock style={{ display: 'flex' }} position="bottomRight">
+        <Row valign="center" className={classes.toggle}>
           <InlineActionButton input="Y" callback={changeToNextPage} />
           <PageIcons
             value={value}
             count={childrenArray.length}
             onChange={onChange}
           />
-        </Dock>
+        </Row>
       )}
     </div>
   );

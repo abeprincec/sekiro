@@ -1,10 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core';
+import { texture } from '../functions/texture';
 
 export const styles = createStyles({
   page: {
-    background: `url(${require('../assets/page-background.jpg')})`
+    ...texture(require('../assets/page.png')),
+    padding: `20px 30px`
   }
 });
 
